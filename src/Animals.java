@@ -23,17 +23,13 @@ public abstract class Animals {
         return age;
     }
 
-    public void eat() {
-        System.out.println("кушать");
-    }
+    public abstract void eat();
 
     public void sleep() {
         System.out.println("Спит");
     }
 
-    public void go () {
-        System.out.println("Перемещаться");
-    }
+    public abstract void go ();
 
     @Override
     public String toString() {

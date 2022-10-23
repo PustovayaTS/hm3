@@ -35,6 +35,8 @@ public class Main {
         System.out.println(falcon.toString());
         if(gazel.equals(giraffe)){
             System.out.println("одинаковые");
+        } else {
+            System.out.println("разные");
         }
     }
 
