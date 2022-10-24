@@ -1,4 +1,6 @@
-public class Mammals extends Animals{
+import java.util.Objects;
+
+public abstract class Mammals extends Animals{
 
     private String livingEnvironment;
     private int movementSpeed;
@@ -25,16 +27,27 @@ public class Mammals extends Animals{
         }
     }
 
-    public void walk() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Mammals mammals = (Mammals) o;
+        return movementSpeed == mammals.movementSpeed && Objects.equals(livingEnvironment, mammals.livingEnvironment);
     }
 
-    public void eat() {
-        System.out.println("жевать");
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), livingEnvironment, movementSpeed);
     }
 
-    public void go () {
-        System.out.println("Бежать");
-    }
+     public abstract void walk ();
 
     @Override
     public String toString() {

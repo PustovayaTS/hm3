@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Flightless extends Birds{
 
     private String typeOfMovement;
@@ -19,30 +21,54 @@ public class Flightless extends Birds{
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Flightless that = (Flightless) o;
+        return Objects.equals(typeOfMovement, that.typeOfMovement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeOfMovement);
+    }
+
     public void walk() {
+        System.out.println(this.getNickname() + " гуляет по земле.");
     }
 
     @Override
     public void hunt() {
-        super.hunt();
+        System.out.println(getNickname() + " охотится на рыб.");
     }
 
     @Override
     public void eat() {
-        super.eat();
+        System.out.println(this.getNickname() + " ест стоя.");
     }
 
     @Override
     public void go() {
-        super.go();
+        System.out.println(this.getNickname() + " перемещатся по земле.");;
     }
 
     public String toString() {
-        return "Flightless{" +
-                "nickname='" + getNickname() + '\'' +
-                ", age=" + getAge() +
-                ", typeOfMovement='" + typeOfMovement + '\'' +
-                ", livingEnvironment='" + getLivingEnvironment() + '\'' +
-                '}';
+        return "Flightless{"
+                + getNickname()
+                + ", возраст - "
+                + getAge()
+                + " лет. Среда проживания - "
+                + getLivingEnvironment()
+                + ". Тип передвижения - "
+                + typeOfMovement
+                + '}';
     }
 }

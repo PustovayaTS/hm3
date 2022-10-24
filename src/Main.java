@@ -13,7 +13,7 @@ public class Main {
 
         Flightless peacock = new Flightless("Павлин", 15, "остров Цейлон", null);
         Flightless penguin = new Flightless("Пингвин", 13, "Антарктида", null);
-        Flightless doDo = new Flightless("Птица до-до", 5,"Маскаренский архипелаг", null);
+        Flightless doDo = new Flightless("Птица до-до", 5, "Маскаренский архипелаг", null);
 
         Flying seagull = new Flying("Чайка", 2, "берег реки Обь", null);
         Flying albatross = new Flying("Альбатрос", 1, "Антарктида", null);
@@ -33,12 +33,6 @@ public class Main {
         System.out.println(seagull.toString());
         System.out.println(albatross.toString());
         System.out.println(falcon.toString());
-        if(gazel.equals(giraffe)){
-            System.out.println("одинаковые");
-        } else {
-            System.out.println("разные");
-        }
+
     }
-
-
 }

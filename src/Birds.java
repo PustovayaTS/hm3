@@ -1,4 +1,6 @@
-public class Birds extends Animals{
+import java.util.Objects;
+
+public abstract class Birds extends Animals{
 
     private String livingEnvironment;
 
@@ -13,16 +15,27 @@ public class Birds extends Animals{
         return livingEnvironment;
     }
 
-    public void hunt() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Birds birds = (Birds) o;
+        return Objects.equals(livingEnvironment, birds.livingEnvironment);
     }
 
-    public void eat(){
-        System.out.println("Клевать");
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), livingEnvironment);
     }
 
-    public void go () {
-        System.out.println("Летать");
-    }
+    public abstract void hunt();
 
     @Override
     public String toString() {

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Amphibians extends Animals{
 
     private String livingEnvironment;
@@ -13,23 +15,46 @@ public class Amphibians extends Animals{
         return livingEnvironment;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Amphibians that = (Amphibians) o;
+        return Objects.equals(livingEnvironment, that.livingEnvironment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), livingEnvironment);
+    }
+
     public void hunt() {
+        System.out.println(this.getNickname() + " cледит за добычей.");
     }
 
     public void eat() {
-        System.out.println("лизать");
+        System.out.println(this.getNickname() + " глотает добычу не жуя.");
     }
 
     public void go () {
-        System.out.println("Ползать");
+        System.out.println(this.getNickname() + " ползает по земле.");
     }
 
     @Override
     public String toString() {
-        return "Amphibians{" +
-                "nickname='" + getNickname() + '\'' +
-                " , age=" + getAge() +
-                "livingEnvironment='" + livingEnvironment + '\'' +
-                '}';
+        return "Amphibians{"
+                + getNickname()
+                + ", возраст - "
+                + getAge()
+                + " лет. Среда проживания - "
+                + getLivingEnvironment()
+                + '}';
     }
 }

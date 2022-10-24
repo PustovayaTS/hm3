@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class Animals {
     private String nickname;
     private int age;
@@ -23,10 +25,27 @@ public abstract class Animals {
         return age;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Animals animals = (Animals) o;
+        return age == animals.age && Objects.equals(nickname, animals.nickname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nickname, age);
+    }
+
     public abstract void eat();
 
     public void sleep() {
-        System.out.println("Спит");
+        System.out.println(this.nickname + " cпит");
     }
 
     public abstract void go ();
