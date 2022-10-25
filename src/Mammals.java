@@ -27,6 +27,16 @@ public abstract class Mammals extends Animals{
         }
     }
 
+    public abstract void walk ();
+
+    @Override
+    public String toString() {
+        return "Mammals{" +
+                "livingEnvironment='" + livingEnvironment + '\'' +
+                ", movementSpeed=" + movementSpeed +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -45,16 +55,6 @@ public abstract class Mammals extends Animals{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), livingEnvironment, movementSpeed);
-    }
-
-     public abstract void walk ();
-
-    @Override
-    public String toString() {
-        return "Mammals{" +
-                "livingEnvironment='" + livingEnvironment + '\'' +
-                ", movementSpeed=" + movementSpeed +
-                '}';
     }
 
 }

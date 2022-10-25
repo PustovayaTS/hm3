@@ -15,26 +15,6 @@ public class Amphibians extends Animals{
         return livingEnvironment;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        if (!super.equals(o)) {
-            return false;
-        }
-        Amphibians that = (Amphibians) o;
-        return Objects.equals(livingEnvironment, that.livingEnvironment);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), livingEnvironment);
-    }
-
     public void hunt() {
         System.out.println(this.getNickname() + " cледит за добычей.");
     }
@@ -56,5 +36,25 @@ public class Amphibians extends Animals{
                 + " лет. Среда проживания - "
                 + getLivingEnvironment()
                 + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Amphibians that = (Amphibians) o;
+        return Objects.equals(livingEnvironment, that.livingEnvironment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), livingEnvironment);
     }
 }

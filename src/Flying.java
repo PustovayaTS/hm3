@@ -21,26 +21,6 @@ public class Flying extends Birds{
         }
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        if (!super.equals(o)) {
-            return false;
-        }
-        Flying flying = (Flying) o;
-        return Objects.equals(typeOfMovement, flying.typeOfMovement);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), typeOfMovement);
-    }
-
     public void fly() {
         System.out.println(this.getNickname() + " летает в небе.");
     }
@@ -72,5 +52,25 @@ public class Flying extends Birds{
                 + getTypeOfMovement()
                 + '}';
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        Flying flying = (Flying) o;
+        return Objects.equals(typeOfMovement, flying.typeOfMovement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeOfMovement);
     }
 }

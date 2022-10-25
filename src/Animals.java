@@ -25,6 +25,22 @@ public abstract class Animals {
         return age;
     }
 
+    public abstract void eat();
+
+    public void sleep() {
+        System.out.println(this.nickname + " cпит");
+    }
+
+    public abstract void go ();
+
+    @Override
+    public String toString() {
+        return "Animals{" +
+                "nickname='" + nickname + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -40,21 +56,5 @@ public abstract class Animals {
     @Override
     public int hashCode() {
         return Objects.hash(nickname, age);
-    }
-
-    public abstract void eat();
-
-    public void sleep() {
-        System.out.println(this.nickname + " cпит");
-    }
-
-    public abstract void go ();
-
-    @Override
-    public String toString() {
-        return "Animals{" +
-                "nickname='" + nickname + '\'' +
-                ", age=" + age +
-                '}';
     }
 }

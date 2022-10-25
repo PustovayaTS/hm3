@@ -15,6 +15,15 @@ public abstract class Birds extends Animals{
         return livingEnvironment;
     }
 
+    public abstract void hunt();
+
+    @Override
+    public String toString() {
+        return "Birds{" +
+                "livingEnvironment='" + livingEnvironment + '\'' +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -33,14 +42,5 @@ public abstract class Birds extends Animals{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), livingEnvironment);
-    }
-
-    public abstract void hunt();
-
-    @Override
-    public String toString() {
-        return "Birds{" +
-                "livingEnvironment='" + livingEnvironment + '\'' +
-                '}';
     }
 }
